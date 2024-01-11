@@ -48,7 +48,7 @@ const App = () => {
   ));
   return (
     <div className="App">
-      {arrayOfPhotos}
+      <PhotoList />
     </div>
   );
 };
