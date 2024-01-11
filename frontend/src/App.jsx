@@ -41,9 +41,9 @@ const App = () => {
   ]
   ;
 
-  const photos = [...sampleDataForPhotoListItem];
-  console.log(photos);
-  const arrayOfPhotos = photos.map((photo, idx) => (
+  // const photos = [...sampleDataForPhotoListItem];
+  // console.log(photos);
+  const arrayOfPhotos = sampleDataForPhotoListItem.map((photo, idx) => (
     <PhotoListItem key={idx} item={photo}></PhotoListItem>
   ));
   return (
