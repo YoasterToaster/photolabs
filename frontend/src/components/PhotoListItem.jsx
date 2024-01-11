@@ -1,5 +1,5 @@
 import React from "react";
-
+import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
 // Larry AI can you help me out here I am not sure what is required for this module?  What am I supposed to do?
@@ -10,6 +10,7 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item">
+      <PhotoFavButton/>
       <div>
         <img className="photo-list__image" src={imageSource} alt="" />
       </div>
