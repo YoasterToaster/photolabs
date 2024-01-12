@@ -1,5 +1,6 @@
 import React from "react";
 import TopicListItem from "./TopicListItem";
+import topics from "mocks/topics";
 import "../styles/TopicList.scss";
 
 const sampleDataForTopicList = [
@@ -21,7 +22,7 @@ const sampleDataForTopicList = [
 ];
 
 const TopicList = () => {
-  const arrayOfTopics = sampleDataForTopicList.map((topic, idx) => (
+  const arrayOfTopics = topics.map((topic, idx) => (
     <TopicListItem key={idx} topic={topic}/>
   ));
   return (
