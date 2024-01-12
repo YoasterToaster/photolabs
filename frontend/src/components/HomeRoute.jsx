@@ -4,7 +4,7 @@ import PhotoList from "./PhotoList";
 
 const HomeRoute = () => {
   return (
-  <div className="HomeRoute">
+  <div className="home-route">
     <TopNavigation />
     <PhotoList />
   </div>
