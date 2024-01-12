@@ -1,6 +1,7 @@
 import React from "react";
 
 import PhotoListItem from "./components/PhotoListItem";
+import TopNavigation from "components/TopNavigationBar";
 import "./App.scss";
 import PhotoList from "./components/PhotoList";
 import TopicList from "components/TopicList";
@@ -10,8 +11,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <TopNavigationBar />
-      <TopicList />
+      <TopNavigation />
       <PhotoList />
     </div>
   );
