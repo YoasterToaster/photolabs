@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import HomeRoute from "./components/HomeRoute";
+import HomeRoute from "./HomeRoute";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
