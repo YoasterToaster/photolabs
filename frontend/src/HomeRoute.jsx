@@ -9,6 +9,8 @@ const HomeRoute = (props) => {
   
   // const isFavourited = () => setFavourited(favourited === true ? false : true);
 
+  
+
   return (
   <div className="home-route">
     <TopNavigation topics={props.topics} favourited={favourited} setFavourited={setFavourited}/>

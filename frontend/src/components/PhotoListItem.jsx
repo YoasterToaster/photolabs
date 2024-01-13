@@ -3,11 +3,11 @@ import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
-  const {location, urls, user} = props.photoDetails;
+  const {id, location, urls, user} = props.photoDetails;
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton isFavourited={props.isFavourited} setFavourited={props.setFavourited}/>
+      <PhotoFavButton favourited={props.favourited} setFavourited={props.setFavourited} photoId={id}/>
       <div>
         <img className="photo-list__image" src={urls.regular} alt="" />
       </div>
