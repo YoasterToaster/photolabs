@@ -6,8 +6,12 @@ import '../styles/PhotoFavButton.scss';
 function PhotoFavButton(props) {
   const [favouritePhoto, setFavouritePhoto] = useState(false);
 
+  const applyToggleFavourite = (id) => {
+    setFavouritePhoto(props.toggleFavourite(id));
+  }
+
   return (
-    <div className="photo-list__fav-icon" onClick={() => toggleFavourite()}>
+    <div className="photo-list__fav-icon" onClick={() => applyToggleFavourite(props.id)}>
       <div className="photo-list__fav-icon-svg">
         {/* Insert React */}
         <FavIcon selected={favouritePhoto}/>
