@@ -4,9 +4,8 @@ import "../styles/PhotoList.scss";
 import photos from "mocks/photos";
 
 const PhotoList = (props) => {
-  const {favourited, setFavourited} = props;
   const arrayOfPhotos = props.photos.map((photo, idx) => {
-    return <PhotoListItem key={idx} photoDetails={photo} favourited={props.favourited} setFavourited={props.setFavourited} />
+    return <PhotoListItem key={idx} photoDetails={photo} toggleFavourite={props.toggleFavourite} />
 });
   console.log(props.favourited);
   return <ul className="photo-list">{arrayOfPhotos}</ul>;
