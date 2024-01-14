@@ -9,7 +9,7 @@ const PhotoListItem = (props) => {
     <div className="photo-list__item">
       <PhotoFavButton toggleFavourite={props.toggleFavourite} photoId={id}/>
       <div>
-        <img className="photo-list__image" src={urls.regular} alt="" onClick={() => props.imageClicked}/>
+        <img className="photo-list__image" src={urls.regular} alt="" onClick={() => props.imageClicked()}/>
       </div>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={user.profile} alt="" />

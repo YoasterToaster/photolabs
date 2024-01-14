@@ -9,6 +9,10 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 const App = () => {
   const [isImageClicked, setIsImageClicked] = useState(false);
 
+  const closeModal = () => {
+    setIsImageClicked(false);
+  }
+
     const imageClicked = () =>{
       setIsImageClicked(true);
     }
@@ -16,7 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} imageClicked={imageClicked}/>
-      {isImageClicked && <PhotoDetailsModal/>}
+      {isImageClicked && <PhotoDetailsModal closeModal={closeModal}/>}
     </div>
   );
 };
