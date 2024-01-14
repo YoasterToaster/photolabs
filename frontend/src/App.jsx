@@ -13,13 +13,13 @@ const App = () => {
     setIsImageClicked(false);
   }
 
-    const imageClicked = () =>{
+    const openModal = () =>{
       setIsImageClicked(true);
     }
 
   return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} imageClicked={imageClicked}/>
+      <HomeRoute topics={topics} photos={photos} openModal={openModal}/>
       {isImageClicked && <PhotoDetailsModal closeModal={closeModal}/>}
     </div>
   );

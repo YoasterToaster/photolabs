@@ -32,7 +32,7 @@ const HomeRoute = (props) => {
         favourited={favourited}
         setFavourited={setFavourited}
       />
-      <PhotoList photos={props.photos} toggleFavourite={toggleFavourite} imageClicked={props.imageClicked}/>
+      <PhotoList photos={props.photos} toggleFavourite={toggleFavourite} openModal={props.openModal}/>
     </div>
   );
 };
