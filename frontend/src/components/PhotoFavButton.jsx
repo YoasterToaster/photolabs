@@ -11,7 +11,7 @@ function PhotoFavButton(props) {
   }
 
   return (
-    <div className="photo-list__fav-icon" onClick={() => applyToggleFavourite(props.id)}>
+    <div className="photo-list__fav-icon" onClick={() => applyToggleFavourite(props.photoID)}>
       <div className="photo-list__fav-icon-svg">
         {/* Insert React */}
         <FavIcon selected={favouritePhoto}/>

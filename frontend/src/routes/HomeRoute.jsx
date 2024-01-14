@@ -4,20 +4,7 @@ import PhotoList from "../components/PhotoList";
 import "../styles/HomeRoute.scss";
 
 const HomeRoute = (props) => {
-  const [favourited, setFavourited] = useState([]);
 
-  const toggleFavourite = (id) => {
-    if (favourited.includes(id)) {
-      const updatedFavourited = [...favourited];
-      const index = updatedFavourited.findIndex((element) => element === id);
-      updatedFavourited.splice(index, 1);
-      setFavourited(updatedFavourited);
-      return false;
-    } else {
-      setFavourited((prevFavourited) => [...prevFavourited, id]);
-      return true;
-    }
-  };
   // Functionalities that modify the state should stay in the same file
   // Check if PhotoId is already in array
   // If you have time pass top navigation and photolist as props instead of calling so that app.js is the only one that calls upon the data
@@ -29,9 +16,9 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigation
         topics={props.topics}
-        favourited={favourited}
+        favourited={props.favourited}
       />
-      <PhotoList photos={props.photos} toggleFavourite={toggleFavourite} openModal={props.openModal}/>
+      <PhotoList photos={props.photos} toggleFavourite={props.toggleFavourite} openModal={props.openModal}/>
     </div>
   );
 };

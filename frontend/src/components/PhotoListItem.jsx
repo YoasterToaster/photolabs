@@ -21,7 +21,7 @@ const PhotoListItem = (props) => {
     }
 return (
     <div className="photo-list__item">
-      <PhotoFavButton toggleFavourite={props.toggleFavourite} photoId={id}/>
+      <PhotoFavButton toggleFavourite={props.toggleFavourite} photoID={id}/>
       <div>
         <img className="photo-list__image" src={urls.regular} alt="" onClick={() => props.openModal(props.photoDetails)}/>
       </div>

@@ -12,6 +12,20 @@ const App = () => {
   const [isImageClicked, setIsImageClicked] = useState(false);
   const [photoDetails, setPhotoDetails] = useState({});
   const [similarPhotos, setSimilarPhotos] = useState([]);
+  const [favourited, setFavourited] = useState([]);
+
+  const toggleFavourite = (id) => {
+    if (favourited.includes(id)) {
+      const updatedFavourited = [...favourited];
+      const index = updatedFavourited.findIndex((element) => element === id);
+      updatedFavourited.splice(index, 1);
+      setFavourited(updatedFavourited);
+      return false;
+    } else {
+      setFavourited((prevFavourited) => [...prevFavourited, id]);
+      return true;
+    }
+  };
 
   function deepCopy(obj) {
     if (typeof obj !== 'object' || obj === null) {
@@ -63,9 +77,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} openModal={openModal} />
+      <HomeRoute topics={topics} photos={photos} toggleFavourite={toggleFavourite} favourited={favourited} openModal={openModal} />
       {isImageClicked && (
-        <PhotoDetailsModal closeModal={closeModal} photoDetails={photoDetails} similarPhotos={similarPhotos}/>
+        <PhotoDetailsModal closeModal={closeModal} toggleFavourite={toggleFavourite} photoDetails={photoDetails} similarPhotos={similarPhotos}/>
       )}
     </div>
   );

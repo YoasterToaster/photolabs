@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/PhotoDetailsModal.scss";
 import PhotoList from "components/PhotoList";
 import closeSymbol from "../assets/closeSymbol.svg";
+import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoDetailsModal = (props) => {
   // console.log(props.similarPhotos);
@@ -15,6 +16,7 @@ const PhotoDetailsModal = (props) => {
       </button>
       <div className="photo-details-modal__top-bar">
         <div>
+        <PhotoFavButton photoID={props.photoDetails.id} toggleFavourite={props.toggleFavourite}/>
           <img
             src={props.photoDetails.urls.full}
             alt=""
@@ -39,7 +41,7 @@ const PhotoDetailsModal = (props) => {
         </div>
       </div>
       <div className="photo-details-modal__images">
-        <PhotoList photos={props.similarPhotos} />
+        <PhotoList photos={props.similarPhotos} toggleFavourite={props.toggleFavourite}/>
       </div>
     </div>
   );
