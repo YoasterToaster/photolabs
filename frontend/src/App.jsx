@@ -14,11 +14,11 @@ const App = () => {
 
   // Pass this down the props heirarchy and use it to tell app.js which image was clicked and have all the details.  Your going to have to copy the object, so find out the correct way to do that first
   const retrievePhotoDetails = (modalPhotoDetails) => {
-    const arrayOfModalPhotoDetails = Object.entries(modalPhotoDetails);
-    console.log(arrayOfModalPhotoDetails);
-    const tempPhotoDetails = Object.fromEntries(arrayOfModalPhotoDetails);
+    // const arrayOfModalPhotoDetails = Object.entries(modalPhotoDetails);
+    // console.log(arrayOfModalPhotoDetails);
+    // const tempPhotoDetails = Object.fromEntries(arrayOfModalPhotoDetails);
     const updatedPhotoDetails = {
-      ...tempPhotoDetails
+      ...modalPhotoDetails
     }
     console.log(updatedPhotoDetails);
     setPhotoDetails(updatedPhotoDetails);
@@ -31,7 +31,7 @@ const App = () => {
   const openModal = (obj) => {
     setIsImageClicked(true);
     retrievePhotoDetails(obj);
-    console.log(photoDetails);
+    // console.log(photoDetails);
   };
 
   return (

@@ -11,11 +11,11 @@ const HomeRoute = (props) => {
       const updatedFavourited = [...favourited];
       const index = updatedFavourited.findIndex((element) => element === id);
       updatedFavourited.splice(index, 1);
-      console.log(updatedFavourited);
+      // console.log(updatedFavourited);
       return false;
     } else {
       setFavourited((prevFavourited) => [...prevFavourited, id]);
-      console.log(favourited);
+      // console.log(favourited);
       return true;
     }
   };
@@ -24,7 +24,7 @@ const HomeRoute = (props) => {
   // If you have time pass top navigation and photolist as props instead of calling so that app.js is the only one that calls upon the data
   // const isFavourited = () => setFavourited(favourited === true ? false : true);
 
-  console.log("Hello");
+  // console.log("Hello");
 
   return (
     <div className="home-route">
