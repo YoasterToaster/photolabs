@@ -21,6 +21,7 @@ const HomeRoute = (props) => {
   };
   // Functionalities that modify the state should stay in the same file
   // Check if PhotoId is already in array
+  // If you have time pass top navigation and photolist as props instead of calling so that app.js is the only one that calls upon the data
   // const isFavourited = () => setFavourited(favourited === true ? false : true);
 
   console.log("Hello");

@@ -4,12 +4,25 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
   const {id, location, urls, user} = props.photoDetails;
-
-  return (
+  // console.log(props.photoDetails);
+  const getPhotoDetails = () => {
+    const photoDetails = {
+        "id": id,
+        "city": location.city,
+        "country": location.country,
+        "imageRegular": urls.regular,
+        "imageFull": urls.full,
+        "profile": user.profile,
+        "username": user.username
+      }
+      
+      return photoDetails;
+    }
+return (
     <div className="photo-list__item">
       <PhotoFavButton toggleFavourite={props.toggleFavourite} photoId={id}/>
       <div>
-        <img className="photo-list__image" src={urls.regular} alt="" onClick={() => props.openModal()}/>
+        <img className="photo-list__image" src={urls.regular} alt="" onClick={() => props.openModal(getPhotoDetails())}/>
       </div>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={user.profile} alt="" />
