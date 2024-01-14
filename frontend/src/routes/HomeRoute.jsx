@@ -11,11 +11,10 @@ const HomeRoute = (props) => {
       const updatedFavourited = [...favourited];
       const index = updatedFavourited.findIndex((element) => element === id);
       updatedFavourited.splice(index, 1);
-      // console.log(updatedFavourited);
+      setFavourited(updatedFavourited);
       return false;
     } else {
       setFavourited((prevFavourited) => [...prevFavourited, id]);
-      // console.log(favourited);
       return true;
     }
   };
@@ -31,7 +30,6 @@ const HomeRoute = (props) => {
       <TopNavigation
         topics={props.topics}
         favourited={favourited}
-        setFavourited={setFavourited}
       />
       <PhotoList photos={props.photos} toggleFavourite={toggleFavourite} openModal={props.openModal}/>
     </div>

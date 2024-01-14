@@ -56,8 +56,8 @@ const App = () => {
     const similarPhotosObject = retrievePhotoDetails(photoDetails.similar_photos);
 
     const similarPhotosArray = Object.values(similarPhotosObject);
-    console.log(similarPhotosArray);
-    console.log(photos);
+    // console.log(similarPhotosArray);
+    // console.log(photos);
     setSimilarPhotos(similarPhotosArray);
   };
 

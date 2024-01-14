@@ -4,7 +4,7 @@ import PhotoList from "components/PhotoList";
 import closeSymbol from "../assets/closeSymbol.svg";
 
 const PhotoDetailsModal = (props) => {
-  console.log(props.similarPhotos);
+  // console.log(props.similarPhotos);
   return (
     <div className="photo-details-modal">
       <button
@@ -21,11 +21,6 @@ const PhotoDetailsModal = (props) => {
             className="photo-details-modal__image"
           />
           <div className="photo-details-modal__header">
-            {/* <img
-              src={props.photoDetails.user.profile}
-              alt=""
-              className="photo-details-modal__photographer-profile"
-            /> */}
             <div className="photo-details-modal__photographer-details">
             <img
               src={props.photoDetails.user.profile}
