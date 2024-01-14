@@ -13,7 +13,8 @@ const PhotoListItem = (props) => {
         "imageRegular": urls.regular,
         "imageFull": urls.full,
         "profile": user.profile,
-        "username": user.username
+        "username": user.username,
+        ...props.photoDetails.similarPhotos
       }
       
       return photoDetails;
@@ -22,7 +23,7 @@ return (
     <div className="photo-list__item">
       <PhotoFavButton toggleFavourite={props.toggleFavourite} photoId={id}/>
       <div>
-        <img className="photo-list__image" src={urls.regular} alt="" onClick={() => props.openModal(getPhotoDetails())}/>
+        <img className="photo-list__image" src={urls.regular} alt="" onClick={() => props.openModal(props.photoDetails)}/>
       </div>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={user.profile} alt="" />

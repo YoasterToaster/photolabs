@@ -11,34 +11,61 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 const App = () => {
   const [isImageClicked, setIsImageClicked] = useState(false);
   const [photoDetails, setPhotoDetails] = useState({});
+  const [similarPhotos, setSimilarPhotos] = useState([]);
+
+  function deepCopy(obj) {
+    if (typeof obj !== 'object' || obj === null) {
+      return obj;
+    }
+  
+    const copy = Array.isArray(obj) ? [] : {};
+  
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        copy[key] = deepCopy(obj[key]);
+      }
+    }
+  
+    return copy;
+  }
 
   // Pass this down the props heirarchy and use it to tell app.js which image was clicked and have all the details.  Your going to have to copy the object, so find out the correct way to do that first
   const retrievePhotoDetails = (modalPhotoDetails) => {
     // const arrayOfModalPhotoDetails = Object.entries(modalPhotoDetails);
     // console.log(arrayOfModalPhotoDetails);
     // const tempPhotoDetails = Object.fromEntries(arrayOfModalPhotoDetails);
-    const updatedPhotoDetails = {
-      ...modalPhotoDetails
-    }
-    console.log(updatedPhotoDetails);
-    setPhotoDetails(updatedPhotoDetails);
+
+    // const updatedPhotoDetails = {
+    //   ...modalPhotoDetails
+    // }
+    const updatedPhotoDetails = deepCopy(modalPhotoDetails);
+
+    // console.log(updatedPhotoDetails);
+    return updatedPhotoDetails;
+    // setPhotoDetails(updatedPhotoDetails);
   };
 
   const closeModal = () => {
     setIsImageClicked(false);
   };
 
-  const openModal = (obj) => {
+  const openModal = (photoDetails) => {
     setIsImageClicked(true);
-    retrievePhotoDetails(obj);
-    // console.log(photoDetails);
+    // retrievePhotoDetails(photoDetails);
+    setPhotoDetails(retrievePhotoDetails(photoDetails));
+    const similarPhotosObject = retrievePhotoDetails(photoDetails.similar_photos);
+
+    const similarPhotosArray = Object.values(similarPhotosObject);
+    console.log(similarPhotosArray);
+    console.log(photos);
+    setSimilarPhotos(similarPhotosArray);
   };
 
   return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} openModal={openModal} />
       {isImageClicked && (
-        <PhotoDetailsModal photos={photos} closeModal={closeModal} photoDetails={photoDetails}/>
+        <PhotoDetailsModal closeModal={closeModal} photoDetails={photoDetails} similarPhotos={similarPhotos}/>
       )}
     </div>
   );

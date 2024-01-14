@@ -4,6 +4,9 @@ import "../styles/PhotoList.scss";
 import photos from "mocks/photos";
 
 const PhotoList = (props) => {
+  // console.log(props.photos);
+
+  // Loops through the array of photo objects to print each one out
   const arrayOfPhotos = props.photos.map((photo, idx) => {
     return <PhotoListItem key={idx} photoDetails={photo} toggleFavourite={props.toggleFavourite} openModal={props.openModal}/>
 });
