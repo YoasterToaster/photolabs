@@ -10,11 +10,7 @@ const TopNavigation = (props) => {
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <TopicList topics={props.topics} />
       {/* If there is something favourited it will display the heart and if not it will be empty */}
-      {props.favourited.length > 0 ? (
-        <FavBadge isFavPhotoExist={true} />
-      ) : (
-        <FavBadge isFavPhotoExist={false} />
-      )}
+        <FavBadge isFavPhotoExist={props.favourited.length > 0} />
     </div>
   );
 };

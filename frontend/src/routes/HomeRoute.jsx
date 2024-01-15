@@ -18,7 +18,7 @@ const HomeRoute = (props) => {
         topics={props.topics}
         favourited={props.favourited}
       />
-      <PhotoList photos={props.photos} toggleFavourite={props.toggleFavourite} openModal={props.openModal}/>
+      <PhotoList photos={props.photos} favourited={props.favourited} toggleFavourite={props.toggleFavourite} openModal={props.openModal}/>
     </div>
   );
 };
