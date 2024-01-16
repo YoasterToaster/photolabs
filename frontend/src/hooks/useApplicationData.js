@@ -9,6 +9,9 @@ export const ACTIONS = {
   UPDATE_SIMILAR_PHOTOS: "UPDATE_SIMILAR_PHOTOS",
   ADD_FAV_PHOTO: "ADD_FAV_PHOTO",
   REMOVE_FAV_PHOTO: "REMOVE_FAV_PHOTO",
+  GET_PHOTOS: "GET_PHOTOS",
+  GET_TOPICS: "GET_TOPICS",
+  TOPIC_SELECTED: "TOPIC_SELECTED"
 };
 
 const initialState = {
@@ -16,6 +19,9 @@ const initialState = {
   photoDetails: {},
   similarPhotos: [],
   favourited: [],
+  photoData: [],
+  topicData: [],
+  topicSelected: 0
 };
 
 function reducer(state, action) {
@@ -46,7 +52,25 @@ function reducer(state, action) {
         favourited: action.payload,
       };
     case ACTIONS.ADD_FAV_PHOTO:
-      return { ...state, favourited: [...state.favourited, action.payload] };
+      return {
+        ...state,
+        favourited: [...state.favourited, action.payload],
+      };
+    case ACTIONS.GET_PHOTOS:
+      return {
+        ...state,
+        photoData: action.payload,
+      };
+    case ACTIONS.GET_TOPICS:
+      return {
+        ...state,
+        topicData: action.payload,
+      };
+      case ACTIONS.TOPIC_SELECTED:
+        return {
+          ...state,
+          topicSelected: action.payload,
+        };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -97,14 +121,58 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.CLOSE_MODAL, payload: false });
   };
 
+  // Get Photos Function
+  const getPhotos = (data) => {
+    dispatch({ type: ACTIONS.GET_PHOTOS, payload: data });
+  };
+
+  // Get Topics Function
+  const getTopics = (data) => {
+    dispatch({ type: ACTIONS.GET_TOPICS, payload: data });
+  };
+
+  // Toggle Topic Function
+  const toggleTopic = (topicSelected) => {
+    dispatch({type: ACTIONS.TOPIC_SELECTED, payload: topicSelected})
+  };
+
+  // API Calls
+  useEffect(() => {
+    console.log("TOPIC TOGGLE: ", state.topicSelected);
+    if (state.topicSelected) {
+      fetch(`http://localhost:8001/api/topics/photos/${state.topicSelected}`)
+        .then((res) => res.json())
+        .then((data) => {
+          getPhotos([...data]);
+        });
+    } else {
+      fetch("http://localhost:8001/api/photos")
+        .then((res) => res.json())
+        .then((data) => {
+          getPhotos([...data]);
+        });
+    }
+  }, [state.topicSelected]);
+
+  useEffect(() => {
+    fetch("http://localhost:8001/api/topics")
+      .then((res) => res.json())
+      .then((data) => {
+        getTopics([...data]);
+      });
+  }, []);
+
   // useEffect to print states to console for debugging
-  useEffect(() => console.log(state));
+  // useEffect(() => console.log(state));
 
   return {
     state,
     closeModal,
     openModal,
     toggleFavourite,
+    getPhotos,
+    getTopics,
+    toggleTopic
   };
 };
 

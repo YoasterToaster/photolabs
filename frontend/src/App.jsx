@@ -1,30 +1,23 @@
 import React, { useCallback, useState } from "react";
 import "./App.scss";
 import HomeRoute from "./routes/HomeRoute";
-import topics from "mocks/topics";
-import photos from "mocks/photos";
 import useApplicationData from "./hooks/useApplicationData";
-// import TopNavigation from "../components/TopNavigationBar";
-// import PhotoList from "../components/PhotoList";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
-  // const [isImageClicked, setIsImageClicked] = useState(false);
-  // const [photoDetails, setPhotoDetails] = useState({});
-  // const [similarPhotos, setSimilarPhotos] = useState([]);
 
-  const { state, closeModal, openModal, toggleFavourite } =
+  const { state, closeModal, openModal, toggleFavourite, toggleTopic } =
     useApplicationData();
 
   return (
     <div className="App">
       <HomeRoute
-        topics={topics}
-        photos={photos}
+        topics={state.topicData}
+        photos={state.photoData}
         toggleFavourite={toggleFavourite}
         favourited={state.favourited}
         openModal={openModal}
+        toggleTopic={toggleTopic}
       />
       {state.isImageClicked && (
         <PhotoDetailsModal
