@@ -11,6 +11,7 @@ const App = () => {
 
   return (
     <div className="App">
+
       <HomeRoute
         topics={state.topicData}
         photos={state.photoData}
@@ -28,6 +29,7 @@ const App = () => {
           favourited={state.favourited}
         />
       )}
+      
     </div>
   );
 };
