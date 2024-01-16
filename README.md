@@ -1,7 +1,7 @@
 # react-photolabs
 The PhotoLabs project for the Web Development React course programming.
 
-# Photolabs
+## Photolabs
 A single page application that displays various images and the people that captured them.  Choose the catagory you want and you will see photos that fall under that topic.
 
 # Choose a specific Topic
