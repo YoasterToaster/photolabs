@@ -7,7 +7,6 @@ const PhotoList = (props) => {
   const arrayOfPhotos = props.photos.map((photo, idx) => {
     return <PhotoListItem key={idx} photoDetails={photo} favourited={props.favourited} toggleFavourite={props.toggleFavourite} openModal={props.openModal}/>
 });
-  // console.log(props.favourited);
   return <ul className="photo-list">{arrayOfPhotos}</ul>;
 };
 
