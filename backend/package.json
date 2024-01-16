@@ -1,13 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Setup",
   "main": "src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
     "error": "TEST_ERROR=true node ./src/index.js",
     "reset": "psql -U development -d photolabs_development < ./src/db/schema/create.sql && psql -U development -d photolabs_development < ./src/db/schema/development.sql"
   },
+  "proxy": "http://localhost:8001",
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -28,5 +29,6 @@
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
     ]
-  }
+  },
+  "keywords": []
 }
